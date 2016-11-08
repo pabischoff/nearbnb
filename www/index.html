@@ -17,7 +17,7 @@
        * element that contains the map. */
       #map {
         height: 90%;
-	width: 80%;
+	width: 100%;
       }
 
 	#map:before {
@@ -31,15 +31,24 @@
         padding: 0;
       }
 
+	p {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
       #pacinput {
-        margin-left: 30px;
+        margin-left: 0px;
         text-overflow: ellipsis;
-        width: 300px;
       }
 	
-	span {
+	.shiny-text-output {
     		color: limegreen;
 	}
+
+	.coords {
+		float: right;
+	}
+
 	.fb-share-button {
 	    float: left;
 	    margin: 0 0 10px 10px;
@@ -54,6 +63,10 @@
 
 	h1 {
 		padding: 15px;
+	}
+
+	.container {
+		height:100%;
 	}
 
     </style>
@@ -151,25 +164,27 @@
 			
 		</div>
 		<div class="row">	
-			<p><input id="pacinput" name="pacinput" class="controls" type="text" placeholder="Paste your Airbnb link here...">
-			<input id="place" type="text" placeholder="What are you looking for?">
-			<input type="button" onclick="initMap()" value="Search" id="enter">
-			Latitude: <span type='text' id='markerLat' class="shiny-text-output"></span> Longitude: <span type='text' id='markerLng' class="shiny-text-output"></span>
+			<p><input id="pacinput" name="pacinput" class="col-sm-3" type="text" placeholder="Paste your Airbnb link here...">
+			<input id="place" type="text" placeholder="What are you looking for?" class="col-sm-3">
+			<input type="button" onclick="initMap()" value="Search" id="enter" class="col-sm-1"></p>
+		</div>
+		<div class="row">
+			<p>Latitude: <span type='text' id='markerLat' class="shiny-text-output"></span> Longitude: <span type='text' id='markerLng' class="shiny-text-output"></span>
 			</p>
 		</div>
-	</div>		
-		<div class="col-sm-1"></div>
+<!--	</div>		-->
+
 		<div id="map"></div>
 	
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABcc36lcEFw8v0Kn8XvhHBV1AS7dSZR5w&libraries=places" async defer></script> <!-- &callback=initMap -->
-	<div class="container">
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABcc36lcEFw8v0Kn8XvhHBV1AS7dSZR5w&libraries=places" async defer></script>
+<!--	<div class="container">-->
 		<br />
 		<div class="fb-share-button" data-href="https://pabischoff.shinyapps.io/nearbnb/" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpabischoff.shinyapps.io%2Fnearbnb%2F&amp;src=sdkpreparse">Share</a></div>
 		<a href="https://twitter.com/share" class="twitter-share-button" data-text="See what&#39;s around an Airbnb before booking with Nearbnb" data-url="https://pabischoff.shinyapps.io/nearbnb/" data-via="pabischoff" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 		<br />
 		<div class="row">
 			<br />
-			<p>This web app is used to find out what's near a particular Airbnb. Just paste the link of an Airbnb you're interested in and enter a search query such as "gyms," "laundry", or "supermarkets", wait until the coordinates show up on the screen, then hit Search. The blue bubble shows a 1 km radius of the approximated Airbnb location, and results are shown up to 2km away. You can also search for more specific stuff like a street name or certain attraction.</p>
+			<p>This web app is used to find out what's near a particular Airbnb. Just paste the link of an Airbnb you're interested in and enter a search query such as "attractions", "laundry", or "supermarkets", wait until the coordinates show up on the screen, then hit Search. The blue bubble shows a 1 km radius of the approximated Airbnb location, and results are shown up to 2 km away. You can also search for more specific stuff like a street name or certain attraction.</p>
 			<p>Nearbnb is an open-source project by Paul Bischoff built using R Shiny and the Google Maps Javascript API. Check out the Github repo <a href="https://github.com/pabischoff/nearbnb">here</a>.</p>
 			<p>I don't collect any of your data, but all users are subject to the Google Maps terms of use.<p>
 		</div>

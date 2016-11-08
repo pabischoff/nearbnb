@@ -2,6 +2,6 @@ name: nearbnb
 account: pabischoff
 server: shinyapps.io
 appId: 136268
-bundleId: 608404
+bundleId: 608433
 url: https://pabischoff.shinyapps.io/nearbnb/
-when: 1478561476.34441
+when: 1478564650.06667
